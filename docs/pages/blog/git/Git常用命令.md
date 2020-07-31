@@ -9,7 +9,7 @@
 
 1. 增加/删除文件
 
-``` git {8}
+``` git {8, 11}
 # 添加指定文件到暂存区
 $ git add [file1] [file2] ...
 
@@ -18,6 +18,9 @@ $ git add [dir]
 
 # 添加当前目录的所有文件到暂存区
 $ git add .
+
+# 修改文件名
+$ git mv [oldfilename] [newfilename]
 
 # 删除工作区文件，并且将这次删除放入暂存区
 $ git rm [file1] [file2] ...

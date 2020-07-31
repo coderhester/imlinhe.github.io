@@ -5,7 +5,7 @@
 
 ### 创建文件
 
-生成 ssh key 的命令是：`ssh-keygen -t rsa -C "your_email@example.com"`。
+进入文件夹：`cd ~/.ssh`，生成 ssh key：`ssh-keygen -t rsa -C "your_email@example.com"`。
 
 输入该命令后有连续的三个提示输入，第一个是你要创建的 ssh key 的文件名。我们就是通过第一个命令来创建不同的秘钥文件（如果不指定文件名会自动覆盖）。第二和第三次输入为秘钥口令，一般不填，直接回车。
 
