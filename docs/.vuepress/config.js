@@ -100,6 +100,7 @@ module.exports = {
             ['others/在第三方页面调用微信接口', '在第三方页面调用微信接口'],
             ['others/移动端遮罩阻止滚动方案', '移动端遮罩阻止滚动方案'],
             ['others/Content-type的几种常见类型', 'Content-type的几种常见类型'],
+            ['others/前端安全', '前端安全'],
           ]
         }
       ],
@@ -118,6 +119,7 @@ module.exports = {
             ['ESLint配置项', 'ESLint配置项'],
             ['电话号码分段', '电话号码分段'],
             ['Canvas签名', 'Canvas签名'],
+            ['切换镜像', '切换镜像'],
           ]
         }
       ],
