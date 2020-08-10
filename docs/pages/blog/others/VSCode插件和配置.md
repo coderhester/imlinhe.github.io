@@ -90,30 +90,49 @@
 
 ```json
 {
+  // * 编辑器设置
   "editor.tabSize": 2,
   "editor.wordWrap": "on",
   "editor.lineHeight": 26,
-  "editor.fontFamily": "Monaco, 苹方-简",
+  "editor.fontFamily": "Monaco",
   "editor.letterSpacing": 0.5,
   "editor.fontSize": 16,
   "editor.minimap.renderCharacters": false,
-  "files.autoSave": "onFocusChange",
   "files.insertFinalNewline": true,
   "workbench.settings.editor": "json",
   "workbench.iconTheme": "vscode-icons",
   "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
   "workbench.colorTheme": "Panda Syntax",
+  // 控制差异编辑器的显示方式是并排还是内联
+  "diffEditor.renderSideBySide": false,
   // git 树状显示
   "gitlens.views.repositories.files.layout": "tree",
   // 在命令行运行code runner
   "code-runner.runInTerminal": true,
-  "vetur.validation.template": false,
   "files.associations": {
     "*.cjson": "jsonc",
     "*.wxss": "css",
     "*.wxs": "javascript",
     "*.mpx": "vue" // mpx文件关联到vue文件
   },
+  //  ! -------------- 分割线 --------------
+  // * ESLint & Prettier & Vetur 配置
+  // * 原理：ESLint 负责代码质量检查和格式检查，Prettier 负责代码格式校验，但 ESLint 并不能完全包含 Prettier 的规则。有交集就会有冲突，需要先运行 Prettier ，然后再借助 ESLint 的 --fix 格式化。这样可以解决所有代码格式问题和部分质量问题（如 var => let），还有部分代码质量问题（如变量声明没有使用）需要手动解决。
+  // 自动格式化
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "html",
+    "vue"
+  ],
+  "vetur.validation.template": false,
+  "vetur.format.defaultFormatter.js": "vscode-typescript",
+  "vetur.format.defaultFormatter.html": "js-beautify-html",
   "vetur.format.defaultFormatterOptions": {
     "js-beautify-html": {
       "wrap_attributes": "aligned-multiple"
@@ -131,16 +150,7 @@
       "eslintIntegration": true //  #让prettier使用eslint的代码格式进行校验 
     }
   },
-  "vetur.format.defaultFormatter.js": "vscode-typescript",
-  "vetur.format.defaultFormatter.html": "js-beautify-html",
-  "eslint.validate": [
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact",
-    "html",
-    "vue"
-  ],
+  "prettier.tabWidth": 2,
   "prettier.printWidth": 120,
   // 在jsx中把'>' 是否单独放一行
   "prettier.jsxBracketSameLine": false,
@@ -150,14 +160,7 @@
   "editor.formatOnSave": false,
   // Enable/disable default JavaScript formatter (For Prettier)
   "javascript.format.enable": false,
-  "emmet.includeLanguages": {
-    "wxml": "html"
-  },
-  // 自动格式化
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
-  },
-  "prettier.tabWidth": 2,
+  // 文件的默认格式化工具
   "[vue]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -173,7 +176,7 @@
   "[jsonc]": {
     "editor.defaultFormatter": "vscode.json-language-features"
   },
-  // 页面报错信息提醒
+  // * 页面报错信息提醒
   "eslint.options": {
     "parserOptions": {
       "ecmaVersion": 7, // 允许使用 es7 语法
@@ -223,7 +226,6 @@
       "react-hooks/exhaustive-deps": 0, // 禁止检查 Hook 的规则
     }
   }
-  // -------------------------- 分割线 -------------------------------
 }
 ```
 
